@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --color-brand: #2aa89a;
+  --color-brand-dark: #1f8a7e;
+  --color-brand-deep: #178277;
+  --color-mint: #e8f6f3;
+  --color-mint-soft: #f4fbf9;
+  --color-navy: #0c2340;
+  --color-navy-soft: #16324f;
+  --color-ink: #152536;
+  --color-muted: #5d6b7a;
+  --color-line: #e6eeeb;
+  --color-peach: #f8e4d4;
+  --color-butter: #f7efd2;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #b8ebe4;
+  color: var(--color-navy);
+}
+
+.container-page {
+  width: min(1180px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+@media (min-width: 640px) {
+  .container-page {
+    width: min(1180px, calc(100% - 3rem));
+  }
+}
+
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+}
+
+.hero-dot {
+  background-image: radial-gradient(#2aa89a33 1.4px, transparent 1.4px);
+  background-size: 18px 18px;
+}
