@@ -8,7 +8,6 @@ const services = [
     title: 'Cardiology',
     text: 'Advanced heart diagnostics, interventional care, and long-term cardiac wellness programs.',
     image: images.cardiology,
-    featured: true,
   },
   {
     title: 'Neurology',
@@ -56,51 +55,33 @@ export default function Specialties() {
             <motion.article
               key={service.title}
               variants={fadeUp}
-              whileHover={{ y: -8 }}
-              className={`group overflow-hidden rounded-3xl shadow-sm transition hover:shadow-xl ${
-                service.featured ? 'relative min-h-[280px]' : 'bg-white'
-              }`}
+              className="group relative min-h-[340px] overflow-hidden rounded-3xl bg-white shadow-sm transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-2 hover:shadow-xl"
             >
-              {service.featured ? (
-                <>
-                  <img
-                    src={service.image}
-                    alt=""
-                    className="absolute inset-0 h-full w-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/70 to-navy/20" />
-                  <div className="relative flex h-full min-h-[280px] flex-col justify-end p-7 text-white">
-                    <h3 className="text-2xl font-extrabold">{service.title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-white/80">{service.text}</p>
-                    <a
-                      href="#appointment"
-                      className="mt-5 inline-flex w-fit items-center gap-2 rounded-full bg-brand px-5 py-2.5 text-sm font-bold text-white"
-                    >
-                      Learn More <ArrowRight size={16} />
-                    </a>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div className="h-44 overflow-hidden">
-                    <img
-                      src={service.image}
-                      alt=""
-                      className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-extrabold text-navy">{service.title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-muted">{service.text}</p>
-                    <a
-                      href="#appointment"
-                      className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-brand"
-                    >
-                      Read More <ArrowRight size={14} />
-                    </a>
-                  </div>
-                </>
-              )}
+              <div className="absolute inset-x-0 top-0 z-0 h-44 overflow-hidden transition-[height] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:h-full">
+                <img
+                  src={service.image}
+                  alt=""
+                  className="h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/80 to-navy/35 opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100" />
+              </div>
+
+              <div className="relative z-10 flex min-h-[340px] flex-col justify-end">
+                <div className="bg-white p-6 transition-colors duration-500 ease-out group-hover:bg-transparent group-hover:p-7">
+                  <h3 className="text-xl font-extrabold text-navy transition-colors duration-500 group-hover:text-white">
+                    {service.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-muted transition-colors duration-500 group-hover:text-white/85">
+                    {service.text}
+                  </p>
+                  <a
+                    href="#appointment"
+                    className="mt-4 inline-flex w-fit items-center gap-2 rounded-full px-0 py-0 text-sm font-bold text-brand transition-all duration-500 ease-out group-hover:mt-5 group-hover:bg-brand group-hover:px-5 group-hover:py-2.5 group-hover:text-white"
+                  >
+                    Learn More <ArrowRight size={16} />
+                  </a>
+                </div>
+              </div>
             </motion.article>
           ))}
         </motion.div>
